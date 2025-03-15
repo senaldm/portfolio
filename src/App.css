@@ -1,0 +1,43 @@
+@font-face {
+    font-family: "KingsCross";
+    src: url("/fonts/KingsCross.ttf");
+}
+
+@font-face {
+    font-family: "Norse-Bold";
+    src: url("/fonts/Norse-Bold.otf");
+}
+
+@font-face {
+    font-family: "Norse";
+    src: url("/fonts/Norse.otf");
+}
+
+@font-face {
+    font-family: "PrinceValiant";
+    src: url("/fonts/PrinceValiant.ttf");
+}
+
+@font-face {
+    font-family: "GreatVictorian-Standard";
+    src: url("/fonts/GreatVictorian-Standard.otf");
+}
+
+@font-face {
+    font-family: "GreatVictorian-Swashed";
+    src: url("/fonts/GreatVictorian-Swashed.otf");
+}
+@font-face {
+    font-family: "GreatVictorian-SwashedSC";
+    src: url("/fonts/GreatVictorian-SwashedSC.otf");
+}
+
+@font-face {
+    font-family: "ParryHotter";
+    src: url("/fonts/ParryHotter.ttf");
+}
+
+@font-face {
+    font-family: "Legendary-Runes" ;
+    src: url("/fonts/Legendary Runes Free Trial.otf");
+}
