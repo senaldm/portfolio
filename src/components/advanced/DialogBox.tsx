@@ -1,62 +1,80 @@
-import { Dialog, DialogActions, DialogTitle, DialogContent} from '@mui/material';
+import { Dialog, DialogActions, DialogTitle, DialogContent, Typography} from '@mui/material';
 import KeyboardDoubleArrowRightIcon from '@mui/icons-material/KeyboardDoubleArrowRight';
+import { useState } from 'react';
 
 interface DialogBoxProps {
     open: boolean;
     onClose?: () => void;
     onclick?: () => void;
-    title?: string;
-    content?: string;
     arrowPosition?: 'top' | 'bottom' | 'left' | 'right';
-    backgroundPostion: string
+    backgroundPostion: string;
+    dialogData: {title: string, content: string}[];
 };
 
 const DialogBox: React.FC<DialogBoxProps> = ({
     open,
     onClose,
     onclick,
-    title,
-    content,
     arrowPosition,
     backgroundPostion,
+    dialogData,
 }) => {
+
+    const [currentIndex, setCurrentIndex] = useState(0);
+
+    const handleNext = () => {
+        if (currentIndex < dialogData.length - 1)
+            setCurrentIndex(currentIndex + 1);
+
+        else if (onClose)
+        {
+            setCurrentIndex(0);
+            onClose();
+        }
+    };
+    
     return (
         <Dialog
             open={open}
             onClose={onClose}
+            fullWidth
+            maxWidth='xs'
+
             sx={{
                 '& .MuiPaper-root': {
-                    position: 'relativw',
+                    position: 'absolute',
                     backgroundImage: `url('/images/godricHollow/dialogBox.png')`,
                     backgroundSize: 'cover',
                     backgroundPosition: `${backgroundPostion}`,
-                    minWidth: '500px', // Ensure dialog has enough space
-                    minHeight: '400px',
-                    padding: '100px',
+                    // minWidth: '500px', // Ensure dialog has enough space
+                    // minHeight: '400px',
+                    padding: '30px',
                     
 
-                    WebkitMaskImage: `url('/images/godricHollow/dailogBox.svg')`,
-                    WebkitMaskPosition: 'center',
-                    WebkitMaskSize: 'contain',
+                    WebkitMaskImage: `url('/images/godricHollow/file.svg')`,
+                    WebkitMaskPosition: 'relative',
+                    WebkitMaskSize: 'cover',
                     WebkitMaskRepeat: 'no-repeat',
-                    maskImage: `url('/images/godricHollow/dialogBox.svg')`,
-                    maskPosition: 'center',
-                    maskSize: 'contain',
+                    maskImage: `url('/images/godricHollow/file.svg')`,
+                    maskPosition: 'relative',
+                    maskSize: 'cover',
                     maskRepeat: 'no-repeat'
                 },
             }}
         >
-            <DialogTitle sx={{textAlign: 'center'}}> {title}</DialogTitle>
-            <DialogContent sx={{ justifyContent: 'center', alignContent: 'center' }}> {content}</DialogContent>
+            <DialogTitle sx={{textAlign: 'center'}}> {dialogData[currentIndex].title}</DialogTitle>
+            <DialogContent sx={{ justifyContent: 'center', alignContent: 'center' }}>
+                <Typography sx={{whiteSpace: 'pre-line', justifyContent: 'center'}}>{dialogData[currentIndex].content}</Typography>
+            </DialogContent>
             <DialogActions >
                 <KeyboardDoubleArrowRightIcon
-                    onClick={onclick || onClose}
+                    onClick={handleNext}
                     fontSize='small'
                     sx={{
-                        position: 'absolute',
+                        position: 'relative',
                         bottom: 20,
-                        right: 20,
-                        color: 'white',
+                        right: 40,
+                        color: 'black',
                         fontSize: 40, 
                         cursor: 'pointer',
                     }} />
