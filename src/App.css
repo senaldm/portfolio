@@ -41,3 +41,13 @@
     font-family: "Legendary-Runes" ;
     src: url("/fonts/Legendary Runes Free Trial.otf");
 }
+
+@font-face {
+    font-family: "Danger-Slanted";
+    src: url("/fonts/Another Danger Slanted - Demo.otf");
+}
+
+@font-face {
+    font-family: "Danger";
+    src: url("/fonts/Another Danger - Demo.otf");
+}

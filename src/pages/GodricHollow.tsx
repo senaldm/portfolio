@@ -1,12 +1,11 @@
-import { Box, Typography } from '@mui/material';
+import { Box, Typography , Link} from '@mui/material';
 import Grid from '@mui/material/Grid2';
 import GlowingImage from '../components/basic/GlowingImage';
-import '../App.css';
+// import '../App.css';
 import DialogBox from '../components/advanced/DialogBox';
 import MaraudersMap from './MaraudersMap';
-
 import { useState } from 'react';
-import PopupLayout from '../components/layouts/layout';
+import PopupLayout from '../components/layouts/Layout';
 
 const GodricHollow: React.FC = () => {
     
@@ -73,7 +72,7 @@ const GodricHollow: React.FC = () => {
         }}>
             
             <DialogBox open={openDialogBox} onClose={handleDialogBoxClose} dialogData={dialogData} backgroundPostion="center" />
-            <PopupLayout open={openPopupLayout} onClose={handleMaraudersMapClose}/>
+            
         
             <Grid container direction="column" >
                 <Grid alignItems="center"
@@ -128,7 +127,11 @@ const GodricHollow: React.FC = () => {
                         <Grid container direction="column" justifyContent="center" alignContent="space-around">
                              <Grid size={4} alignContent="center">
                                 <GlowingImage src="images/godricHollow/letter.png" onClick={handleLetterOpen}
-                                alt="letter" height="10vh"/>
+                                    alt="letter" height="10vh">
+                                    {/* <Link component={Link}
+                                        to="/pages/MaraudersMap"
+                                       /> */}
+                                    </GlowingImage>
                             </Grid>
                             <Grid size={2} height="10vh"/>
                                 <Grid size={6} alignContent="center">

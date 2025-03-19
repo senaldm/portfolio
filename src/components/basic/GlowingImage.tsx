@@ -1,7 +1,8 @@
 import { Box } from '@mui/material';
-import { useState } from 'react';
+import { ReactNode, useState } from 'react';
 
 interface GlowingImageProps{
+    children?: ReactNode;
     src: string;
     alt?: string;
     height?: string | number;
@@ -12,7 +13,8 @@ interface GlowingImageProps{
 
 };
 
-const GlowingImage: React.FC <GlowingImageProps> = ({
+const GlowingImage: React.FC<GlowingImageProps> = ({
+    children,
     src = "",
     alt = "Glowing Image",
     height = "50vh",
@@ -34,6 +36,7 @@ const GlowingImage: React.FC <GlowingImageProps> = ({
     }
     return (
         <Box
+            children = {children}
             component={"img"}
             src={src}
             alt={alt}
